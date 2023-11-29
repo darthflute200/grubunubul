@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body class="uyelik-kayit-body">
+       <div class="uyelik-kayit-container">
+        <img src="#">
+        <form class="uyelik-kayit-box" method="post">
+            <input placeholder="Adınız" type="text" name="name" id="name" class="uyelik-kayit-input"/>
+            <input placeholder="Soyadınız" type="text" name="surname" class="uyelik-kayit-input"/>
+            <input placeholder="E-mail Adresiniz" type="email" name="email" class="uyelik-kayit-input"/>
+            <input placeholder="Telefon Numaranız" type="tel" name="phone"class="uyelik-kayit-input"/>
+            <input type="text" placeholder="Şifre Belirleyiniz." name="password" class="uyelik-kayit-input">
+            <input type="text" placeholder="Şifrenizi Tekrar Yazınız." name="passwordRepeat" class="uyelik-kayit-input">
+            <div class="sex-container">
+                <label>Cinsiyetiniz:</label>
+                <input type="radio" name="cinsiyet" value="Erkek"/><label>Erkek</label>
+                <input type="radio" name="cinsiyet" value="Kadın"/><label>Kadın</label>
+            </div>
+            <button type="submit" class="Button">Hesap Aç</button>
+            <p>Hesabın var mı? <a href="http://localhost:3000/uyegiris">Giriş Yap</a></p>
+        </form>
+        <% if (typeof hata == 'string' && hata) { %>
+            <div class="uye-kayit-hata">
+                <p><%= hata %></p>
+            </div>
+        <% } %>
+      </div>
+    </body>
+</html>

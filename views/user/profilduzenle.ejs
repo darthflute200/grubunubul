@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="../style/style.css" rel="stylesheet">
+    <title>Grubunu Bul</title>
+</head>
+<body>
+    <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+        <%- include('../navbars/adminnavbar.ejs') %>
+    <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+        <%- include('../navbars/moderatornavbar.ejs') %>
+    <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+        <%- include('../navbars/usernavbar.ejs') %>
+    <% } else { %>
+        <%- include('../navbars/guestnavbar.ejs') %>
+    <% } %>
+
+    <form method="post" class="body-center">
+        <div class="hesap-bilgileri">
+            <div class="hesap-bilgileri-container">
+                <label>İsim:</label>
+                <input type="text" value="<%= hesabıduzenle.name %>">
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Soyisim:</label>
+                <input type="text" value="<%= hesabıduzenle.surname %>">
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Email:</label>
+                <input type="text" value="<%= hesabıduzenle.email %>">
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Telefon Numarası:</label>
+                <input type="text" value="<%= hesabıduzenle.phone %>">
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Cinsiyet:</label>
+                <select name="cinsiyet">
+                    <option value="Erkek" <%= (hesabıduzenle.sex === "Erkek") ? "selected" : "" %>>Erkek</option>
+                    <option value="Kadın" <%= (hesabıduzenle.sex === "Kadın") ? "selected" : "" %>>Kadın</option>
+                </select>
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Eski Şifre:</label>
+                <input type="text" name="oldpassword">
+            </div>
+            <div class="hesap-bilgileri-container">
+                <label>Yeni Şifre:</label>
+                <input type="text" name="newpassword">
+            </div>
+        </div>
+        <button type="submit">Profili Düzenle</button>
+    </form>
+</body>
+</html>

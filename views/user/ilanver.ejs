@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body>
+        <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+         <%- include('../navbars/adminnavbar.ejs') %>
+         <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+            <%- include('../navbars/moderatornavbar.ejs') %>
+        <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+            <%- include('../navbars/usernavbar.ejs') %>
+            <% } else { %>
+             <%- include('../navbars/guestnavbar.ejs') %>
+        <% } %>
+         <form class="user-post" method="post" enctype="multipart/form-data">
+            <div class="user-post-container">
+              <label>İlan Başlığı</label>
+              <input type="text" class="user-input" name="baslik">
+            </div>
+            <div class="user-post-container">
+                <label>Açıklama</label>
+                <textarea type="text" class="user-textarea" name="aciklama"></textarea>
+            </div>
+            <div class="user-post-container">
+                <label>Grup Resmi</label>
+                <input type="file" class="user-input" name="grupresmi">
+            </div>
+            <div class="user-post-container">
+                <label>Aranan Müzisyen</label>
+                <select name="aranan">
+                    <option>Bateri</option>
+                    <option>Flüt</option>
+                    <option>Gitar</option>
+                    <option>Vokal</option>
+                    <option>Piyanist</option>
+                    <option>DJ</option>
+                    <option>Bas Gitar</option>
+                </select>
+            </div>
+            <button type="submit">İlanı Oluştur</button>
+         </form>
+    </body>
+</html>

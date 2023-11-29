@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body>
+        <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+         <%- include('../navbars/adminnavbar.ejs') %>
+         <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+            <%- include('../navbars/moderatornavbar.ejs') %>
+        <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+            <%- include('../navbars/usernavbar.ejs') %>
+            <% } else { %>
+             <%- include('../navbars/guestnavbar.ejs') %>
+        <% } %>
+        <div class="body-center">
+            <div class="uyeler-container">
+                <div class="uyeler-box-container"></div>
+            </div>
+        </div>
+    </body>

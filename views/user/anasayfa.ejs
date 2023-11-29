@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body>
+        <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+         <%- include('../navbars/adminnavbar.ejs') %>
+         <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+            <%- include('../navbars/moderatornavbar.ejs') %>
+        <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+            <%- include('../navbars/usernavbar.ejs') %>
+            <% } else { %>
+             <%- include('../navbars/guestnavbar.ejs') %>
+        <% } %>
+        <div class="body-center">
+        <div class="guncel-ilanlar">
+          <h4>Güncel İlanlar</h4>
+          <% ilanlar.forEach(ilan => { %>
+           <div class="ilan-container">
+            <img class="ilan-photo" src="../uploads/<%= ilan.grupresmi %>">
+            <div class="ilan-box">
+                <span style="font-weight: bold;"><%= ilan.baslik %></span>
+                <span style="font-weight: bold;"><%= ilan.acıklama %></span>
+            </div>
+            <div class="ilan-box">
+                <span style="font-weight: bold;"><%= ilan.User.name%> <%= ilan.User.surname %></span>
+                <span style="font-weight: bold;"><%= ilan.createdAt%></span>
+            </div>
+           </div>
+          <% }) %>
+        </div>
+        </div>
+    </body>
+</html>

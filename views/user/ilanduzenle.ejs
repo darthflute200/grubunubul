@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body>
+        <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+         <%- include('../navbars/adminnavbar.ejs') %>
+         <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+            <%- include('../navbars/moderatornavbar.ejs') %>
+        <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+            <%- include('../navbars/usernavbar.ejs') %>
+            <% } else { %>
+             <%- include('../navbars/guestnavbar.ejs') %>
+        <% } %>
+         <form class="user-post" method="post" enctype="multipart/form-data">
+            <div class="user-post-container">
+              <label>İlan Başlığı</label>
+              <input type="text" class="user-input" name="baslik" value="<%= mevcutilan.baslik %>">
+            </div>
+            <div class="user-post-container">
+                <label>Açıklama</label>
+                <textarea type="text" class="user-textarea" name="aciklama"><%= mevcutilan.acıklama %></textarea>
+            </div>
+            <div class="user-post-container">
+                <label>Yeni Fotoğraf Ekle</label>
+                <input type="file" class="user-input" name="grupresmi">
+            </div>
+            <div class="user-post-container">
+                <label>Aranan Müzisyen</label>
+                <select name="aranan" value="<%= mevcutilan.aranan %>">
+                    <option <%= (mevcutilan.aranan === "Bateri") ? "selected" : "" %>></option>>Bateri</option>
+                    <option <%= (mevcutilan.aranan === "Flüt") ? "selected" : "" %>>Flüt</option>
+                    <option <%= (mevcutilan.aranan === "Gitae") ? "selected" : "" %>>Gitar</option>
+                    <option <%= (mevcutilan.aranan === "Vokal") ? "selected" : "" %>>Vokal</option>
+                    <option <%= (mevcutilan.aranan === "Piyanist") ? "selected" : "" %>>Piyanist</option>
+                    <option <%= (mevcutilan.aranan === "DJ") ? "selected" : "" %>>DJ</option>
+                    <option <%= (mevcutilan.aranan === "Bas Gitar") ? "selected" : "" %>>Bas Gitar</option>
+                </select>
+            </div>
+            <button type="submit">İlanı Oluştur</button>
+         </form>
+    </body>
+</html>

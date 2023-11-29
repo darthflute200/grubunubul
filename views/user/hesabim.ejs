@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style/style.css" rel="stylesheet">
+        <title>Grubunu Bul</title>
+    </head>
+    <body>
+        <% if (typeof navbaradmin === "boolean" && navbaradmin) { %>
+         <%- include('../navbars/adminnavbar.ejs') %>
+         <% } else if (typeof navbarmoderator === "boolean" && navbarmoderator) { %>
+            <%- include('../navbars/moderatornavbar.ejs') %>
+        <% } else if (typeof navbaruser === "boolean" && navbaruser) { %>
+            <%- include('../navbars/usernavbar.ejs') %>
+            <% } else { %>
+             <%- include('../navbars/guestnavbar.ejs') %>
+        <% } %>
+            <div class="body-center">
+                <div class="hesap-bilgileri">
+                <div class="hesap-bilgileri-container">
+                    <label>İsim:</label>
+                    <label><%= hesapbilgileri.name %></label>
+                </div>
+                <div class="hesap-bilgileri-container">
+                    <label>soyisim:</label>
+                    <label><%= hesapbilgileri.surname %></label>
+                </div>
+                <div class="hesap-bilgileri-container">
+                    <label>email:</label>
+                    <label><%= hesapbilgileri.email %></label>
+                </div>
+                <div class="hesap-bilgileri-container">
+                    <label>telefon numaram:</label>
+                    <label><%= hesapbilgileri.phone%></label>
+                </div>
+                <div class="hesap-bilgileri-container">
+                    <label>cinsiyet:</label>
+                    <label><%= hesapbilgileri.sex %></label>
+                </div>
+                </div>
+                <a href="http://localhost:3000/profilduzenle">Profili Düzenle</a>
+    </body>
+</html>
